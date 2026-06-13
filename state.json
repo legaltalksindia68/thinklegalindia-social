@@ -1,5 +1,5 @@
 {
-  "cursor": 2,
+  "cursor": 3,
   "history": [
     {
       "id": "pvt-ltd-registration",
@@ -21,6 +21,13 @@
       "posted_at": "2026-06-13T15:53:22",
       "image_url": "https://github.com/legaltalksindia68/thinklegalindia-social/releases/download/media/27471539837_gst-registration_post.png",
       "disclaimer": false
+    },
+    {
+      "id": "gstr3b-deadline",
+      "topic": "Compliance Deadline — GSTR-3B",
+      "posted_at": "2026-06-13T20:49:53",
+      "image_url": "https://github.com/legaltalksindia68/thinklegalindia-social/releases/download/media/27478702584_gstr3b-deadline_post.png",
+      "disclaimer": true
     }
   ]
 }
