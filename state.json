@@ -1,5 +1,5 @@
 {
-  "cursor": 1,
+  "cursor": 2,
   "history": [
     {
       "id": "pvt-ltd-registration",
@@ -13,6 +13,13 @@
       "topic": "Company Registration",
       "posted_at": "2026-06-13T18:07:29",
       "image_url": "https://files.catbox.moe/rkxiye.png",
+      "disclaimer": false
+    },
+    {
+      "id": "gst-registration",
+      "topic": "GST Registration",
+      "posted_at": "2026-06-13T15:53:22",
+      "image_url": "https://github.com/legaltalksindia68/thinklegalindia-social/releases/download/media/27471539837_gst-registration_post.png",
       "disclaimer": false
     }
   ]
