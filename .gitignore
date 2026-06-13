@@ -1,0 +1,15 @@
+# secrets — never commit
+.env
+/tmp/tli_pat
+
+# python
+__pycache__/
+*.pyc
+
+# generated posts, illustrations, logs
+outputs/
+
+# state.json IS tracked on purpose — GitHub Actions advances and commits it
+# back so the rotation cursor persists across cloud runs.
+
+# brand assets (fonts + logo) ARE tracked — the pipeline needs them.

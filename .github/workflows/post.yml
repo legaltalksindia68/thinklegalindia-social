@@ -1,0 +1,89 @@
+# Think Legal India — twice-daily social post (cloud cron).
+# Runs on GitHub's servers, independent of any laptop. Fires at:
+#   04:00 UTC  =  09:30 IST  (morning)
+#   16:00 UTC  =  21:30 IST  (evening)
+# Manual trigger also available via the Actions tab.
+name: post-social
+
+on:
+  schedule:
+    - cron: "0 4 * * *"   # 09:30 IST
+    - cron: "0 16 * * *"  # 21:30 IST
+  workflow_dispatch: {}    # manual "Run workflow" button
+
+# GITHUB_TOKEN needs to commit state.json back so the rotation cursor advances.
+permissions:
+  contents: write
+
+# Don't run two posts in parallel even if a manual + scheduled fire overlap.
+concurrency:
+  group: post-social
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install librsvg (for SVG fallback)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq librsvg2-bin
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Materialise .env from secrets
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          MAKE_API_TOKEN:     ${{ secrets.MAKE_API_TOKEN }}
+          MAKE_TEAM_ID:       ${{ secrets.MAKE_TEAM_ID }}
+          MAKE_ZONE:          ${{ secrets.MAKE_ZONE }}
+          MAKE_WEBHOOK_URL:   ${{ secrets.MAKE_WEBHOOK_URL }}
+          IMAGE_HOST:         ${{ secrets.IMAGE_HOST }}
+        run: |
+          umask 077
+          {
+            echo "OPENROUTER_API_KEY=$OPENROUTER_API_KEY"
+            echo "MAKE_API_TOKEN=$MAKE_API_TOKEN"
+            echo "MAKE_TEAM_ID=$MAKE_TEAM_ID"
+            echo "MAKE_ZONE=$MAKE_ZONE"
+            echo "MAKE_WEBHOOK_URL=$MAKE_WEBHOOK_URL"
+            echo "IMAGE_HOST=$IMAGE_HOST"
+          } > .env
+
+      - name: Run pipeline (live)
+        run: python3 pipeline.py --live
+
+      - name: Persist rotation state + commit log
+        run: |
+          git config user.name  "tli-social-bot"
+          git config user.email "bot@thinklegalindia.co"
+          git add state.json || true
+          if git diff --cached --quiet; then
+            echo "no state changes to commit"
+          else
+            git commit -m "post: advance rotation [skip ci]"
+            git push
+          fi
+
+      - name: Upload generated artifacts (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-${{ github.run_id }}
+          path: |
+            outputs/*.png
+            outputs/cron.log
+          retention-days: 14
+          if-no-files-found: ignore

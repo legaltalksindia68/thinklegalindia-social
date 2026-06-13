@@ -1,0 +1,207 @@
+{
+  "_README": "Content library for the social pipeline. Posts run in order (round-robin) — see state.json for the cursor. EVERY post follows the same job: name a real DANGER the founder probably isn't taking seriously, show the consequences AND the upside of fixing it, hint at the right approach, then say it's case-specific (so they need us). Visuals are deliberately DIFFERENT per topic so two posts never look alike in feed. Fields: kicker (category tag), title_lines (the hook; each line = {runs:[{t,w,c}], size}; w=x/b/s weight, c=ink/carrot/willow/willow_deep), subhook (serif line), bullets (3 sharp items), cta, illustration_brief (NO text, brand style, topic-distinctive), fb_caption, ig_caption, include_disclaimer.",
+  "posts": [
+    {
+      "id": "pvt-ltd-registration",
+      "topic": "Company Registration",
+      "kicker": "Pvt Ltd · The Real Cost of Waiting",
+      "title_lines": [
+        {"runs": [{"t": "Still running it", "w": "s", "c": "ink"}], "size": 52},
+        {"runs": [{"t": "as “just yourself”?", "w": "x", "c": "ink"}], "size": 66},
+        {"runs": [{"t": "That’s personal risk.", "w": "x", "c": "carrot"}], "size": 62}
+      ],
+      "subhook": "Without a registered company, your bank account is the business’s liability.",
+      "bullets": [
+        "No limited liability — a client lawsuit can hit your personal savings",
+        "Most investors, banks & big clients won’t sign with an unregistered entity",
+        "Every month you wait, GST / TDS / books get harder to clean up later"
+      ],
+      "cta": "DM “START” for a free 10-min review",
+      "illustration_brief": "a single founder standing on a cracking glass floor that's splitting open beneath them, briefcase in hand, with a calm safe enclosure of a brand-coloured rounded shield labelled by a willow-green checkmark badge above — symbolising personal liability without a registered company, dramatic but flat-vector composition with negative space",
+      "fb_caption": "Still invoicing clients as a freelancer or “just yourself”? Every signed deal is sitting on your personal balance sheet — your savings, your home, your name. A Private Limited Company puts a wall between you and that risk. Setup right (name, DSC, DIN, SPICe+, MoA/AoA) actually depends on a few factors most online checklists skip — DPIIT eligibility, the right authorised capital, founders’ agreement clauses. We walk you through it and file it for you, all-inclusive. Visit thinklegalindia.co or DM “START” for a free 10-minute review of your specific case.",
+      "ig_caption": "Your savings are not your business’s safety net. 🧱\n\nNo company = full personal liability. We register your Pvt Ltd the right way — and the “right way” depends on YOUR situation (capital, founders, sector).\n\nDM “START” for a free 10-min review.\n\n#StartupIndia #PvtLtdRegistration #CompanyRegistration #Entrepreneur #SmallBusinessIndia #FoundersOfIndia #BusinessSetup #ProtectYourBusiness #LimitedLiability #ThinkLegalIndia"
+    },
+    {
+      "id": "gst-registration",
+      "topic": "GST Registration",
+      "kicker": "GST · Selling without it?",
+      "title_lines": [
+        {"runs": [{"t": "Selling without", "w": "s", "c": "ink"}], "size": 52},
+        {"runs": [{"t": "a GSTIN?", "w": "x", "c": "carrot"}], "size": 96},
+        {"runs": [{"t": "You’re bleeding margin.", "w": "x", "c": "ink"}], "size": 50}
+      ],
+      "subhook": "No GSTIN means no input credit — you’re paying the 18% the law lets you reclaim.",
+      "bullets": [
+        "Cross ₹40L (goods) / ₹20L (services)? Filing late triggers penalty + interest",
+        "Amazon, Flipkart, Shopify, B2B clients won’t onboard you without one",
+        "Voluntary registration unlocks ITC — get back the GST you’re already paying"
+      ],
+      "cta": "DM “GST” to check your eligibility",
+      "illustration_brief": "a coin tower with carrot-orange coins slowly slipping off the side into a dark crack at the bottom of the frame, while a parallel willow-green coin tower stands tall and stable behind a brand shield — symbolising margin lost without GST input credit, flat vector minimal composition, plenty of paper background",
+      "fb_caption": "Here’s what most small businesses don’t calculate: if you’re not GST-registered, you’re paying 18% GST on every supplier invoice — and you can’t reclaim a rupee of it. Your competitor with a GSTIN can. That’s your margin, walking out the door. On top of that: marketplaces lock you out, B2B clients can’t deduct your invoices, and the moment you cross the threshold without registering, interest + penalty starts compounding. Voluntary registration sometimes makes sense even below the threshold — it depends on your buyers, supply mix and state. We work it out for you. Visit thinklegalindia.co or DM “GST”.",
+      "ig_caption": "Your competitor with a GSTIN gets 18% back. You don’t. 💸\n\nNo GST = no input credit = thinner margin. We figure out if voluntary registration helps YOUR business and file it correctly.\n\nDM “GST” for an eligibility check.\n\n#GSTRegistration #GSTIndia #InputTaxCredit #SmallBusinessIndia #StartupIndia #MSME #BusinessMargin #Ecommerce #SellOnline #ThinkLegalIndia"
+    },
+    {
+      "id": "gstr3b-deadline",
+      "topic": "Compliance Deadline — GSTR-3B",
+      "kicker": "GST · Missed a return?",
+      "title_lines": [
+        {"runs": [{"t": "Missed", "w": "s", "c": "ink"}], "size": 52},
+        {"runs": [{"t": "one GST return?", "w": "x", "c": "ink"}], "size": 70},
+        {"runs": [{"t": "It compounds.", "w": "x", "c": "carrot"}], "size": 80}
+      ],
+      "subhook": "Late fees stack daily. After two missed returns, ITC freezes. Quiet, expensive, fixable.",
+      "bullets": [
+        "₹50/day late fee + 18% p.a. interest — per return, per month",
+        "2 consecutive misses = e-way bill & ITC blocked until you catch up",
+        "Older periods need careful reconciliation, not a panic-click ‘file now’"
+      ],
+      "cta": "DM “FIX” for a compliance check",
+      "illustration_brief": "a row of calendar pages stacked like dominoes, the first one tipping with a carrot-orange exclamation mark, knocking the rest forward, with a willow-green hand catching the falling sequence — symbolising compounding penalties from one missed return, flat vector, dramatic motion suggestion, plenty of paper background space",
+      "fb_caption": "Most “late GST” problems we see started with one skipped month — usually for a perfectly good reason (a holiday, a sick accountant, a client payment that didn’t land in time). The damage isn’t the late fee. The damage is what happens at month two: your input tax credit freezes, your e-way bills get blocked, and any future return that touches that period needs careful reconciliation before you re-file. Filing today without that reconciliation often makes the eventual notice worse. We look at your last 6 months of returns, sequence the fixes, and file the catch-up correctly. Visit thinklegalindia.co or DM “FIX”.",
+      "ig_caption": "One missed GST return rarely stays just one. ⏳\n\nLate fee → ITC freeze → e-way block. Filing late without reconciling first can make the next notice worse.\n\nDM “FIX” for a 6-month compliance check.\n\n#GSTR3B #GSTFiling #GSTLateFee #ComplianceCheck #SmallBusinessIndia #BusinessOwner #TaxFiling #GSTIndia #MSME #ThinkLegalIndia",
+      "include_disclaimer": true
+    },
+    {
+      "id": "trademark-registration",
+      "topic": "Trademark Registration",
+      "kicker": "Trademark · Don’t lose your name",
+      "title_lines": [
+        {"runs": [{"t": "Your brand name", "w": "s", "c": "ink"}], "size": 50},
+        {"runs": [{"t": "isn’t yours", "w": "x", "c": "carrot"}], "size": 90},
+        {"runs": [{"t": "until you file.", "w": "x", "c": "ink"}], "size": 70}
+      ],
+      "subhook": "First-to-file wins in India — not first-to-use. Even your registered company name doesn’t protect it.",
+      "bullets": [
+        "Someone else can file your name today and force you to rebrand tomorrow",
+        "The wrong class = the wrong protection — picking it is 80% of the value",
+        "Use ™ the day we file (registered ® comes ~18–24 months later)"
+      ],
+      "cta": "DM “BRAND” for a free name search",
+      "illustration_brief": "two hands reaching for the same single trademark symbol floating in the centre, one hand carrot-orange (a competitor) just about to grab it, the other ink hand half a moment behind — capturing the tension of first-to-file, flat vector, clean negative space, brand-coloured glow behind the symbol",
+      "fb_caption": "A common founder mistake: assuming the Pvt Ltd company name on your incorporation certificate also reserves the brand name. It doesn’t. India is first-to-file — whoever submits the TM application first owns the right to that mark in that class, regardless of who built the brand. We’ve seen businesses spend years building goodwill on a name a stranger filed three months earlier. The fix is unglamorous: a proper TM-1 search, picking the right Nice classification (this is where most DIY filings go sideways), and filing the application. You can use ™ from day one. Visit thinklegalindia.co or DM “BRAND”.",
+      "ig_caption": "Pvt Ltd name ≠ brand name protection. 🛡️\n\nIndia is first-to-file. Someone else can register your name and force you to rebrand. We do the search + filing, in the right class for YOUR business.\n\nDM “BRAND” for a free name search.\n\n#TrademarkRegistration #BrandProtection #StartupIndia #SmallBusinessIndia #Entrepreneur #IntellectualProperty #BrandIdentity #IndianStartups #FoundersOfIndia #ThinkLegalIndia"
+    },
+    {
+      "id": "roc-annual-compliance",
+      "topic": "ROC / Annual Compliance",
+      "kicker": "ROC · The Silent Penalty",
+      "title_lines": [
+        {"runs": [{"t": "No revenue yet?", "w": "s", "c": "ink"}], "size": 50},
+        {"runs": [{"t": "MCA still wants", "w": "x", "c": "ink"}], "size": 60},
+        {"runs": [{"t": "AOC-4 + MGT-7.", "w": "x", "c": "carrot"}], "size": 76}
+      ],
+      "subhook": "₹100/day. Per form. Per company. No upper limit. The cheapest mistake to fix today.",
+      "bullets": [
+        "Director disqualification for 5 years after non-filing — across ALL companies",
+        "Strike-off + frozen DIN is a real risk for repeatedly non-compliant Pvt Ltds",
+        "DIR-3 KYC, AOC-4, MGT-7, DPT-3 — there’s an annual stack, not just one filing"
+      ],
+      "cta": "DM “ROC” for a compliance audit",
+      "illustration_brief": "a quiet ticking meter with a willow-green dial slowly turning carrot-orange as a faint counter ticks upward (a stylised compliance odometer), under a small umbrella shield with a brand-coloured checkmark — calm and unalarming, flat vector with paper background, no text on the meter",
+      "fb_caption": "If your Pvt Ltd hasn’t made revenue yet, the ROC isn’t letting you off — it’s the opposite. Companies with zero turnover still owe AOC-4, MGT-7, and DIR-3 KYC every year. The penalty is ₹100 per day, per form, with no cap. Worse: a director who is non-compliant on one company gets disqualified across every other company they sit on for 5 years. We’ve cleaned this up for founders sitting on ₹50k–₹2L in accumulated penalties that started as one skipped year. The fix is an annual compliance calendar + filings done on time, and yes, the past year’s mess needs a careful pickup — not a quick re-file. Visit thinklegalindia.co or DM “ROC”.",
+      "ig_caption": "Zero revenue still means: file. 📑\n\n₹100/day per form. No upper limit. Director disqualification across all your companies. Fixable today, expensive tomorrow.\n\nDM “ROC” for a compliance audit.\n\n#ROCCompliance #AnnualCompliance #MCA #PvtLtdCompliance #StartupIndia #FoundersOfIndia #CompanyLaw #SmallBusinessIndia #DirectorDisqualification #ThinkLegalIndia"
+    },
+    {
+      "id": "msme-udyam",
+      "topic": "MSME / Udyam Registration",
+      "kicker": "MSME · Money You’re Owed",
+      "title_lines": [
+        {"runs": [{"t": "Customers paying", "w": "s", "c": "ink"}], "size": 46},
+        {"runs": [{"t": "you 90 days late?", "w": "x", "c": "ink"}], "size": 60},
+        {"runs": [{"t": "MSME law is yours.", "w": "x", "c": "carrot"}], "size": 60}
+      ],
+      "subhook": "Udyam-registered MSMEs can legally demand interest on late payments — up to 3x the bank rate.",
+      "bullets": [
+        "MSMED Act gives you a 45-day payment deadline + compound interest if breached",
+        "Collateral-free loans up to ₹5Cr under CGTMSE — only with Udyam",
+        "GeM, government tenders, priority-sector credit — gated by Udyam"
+      ],
+      "cta": "DM “MSME” to register & claim back",
+      "illustration_brief": "a stylised invoice with a clock embedded in it, surrounded by willow-green coins flowing back from a large faded customer figure toward a small confident business storefront, a brand-coloured legal-document shield connecting them — symbolising MSME law forcing late-paying customers to settle, flat vector composition",
+      "fb_caption": "If your B2B customers routinely sit on your invoices for 60, 90, even 120 days — that’s not “how business works in India”, that’s a legally claimable interest debt. The MSMED Act gives Udyam-registered MSMEs a 45-day payment ceiling and lets you charge compound interest at three times the bank rate if the buyer breaches it. Most small businesses never claim it because they never registered. Beyond that — collateral-free loans up to ₹5Cr, GeM tender access, priority-sector lending. The catch: you have to register correctly (NIC code, turnover declaration, PAN/Aadhaar linkage) for the benefits to actually apply. We register you and walk you through claiming what you’re owed. Visit thinklegalindia.co or DM “MSME”.",
+      "ig_caption": "Customers paying 90 days late? That’s not normal — that’s claimable. ⚖️\n\nUdyam-registered MSMEs can demand compound interest under the MSMED Act. Plus collateral-free loans, GeM access, priority credit.\n\nDM “MSME” to register & claim back.\n\n#MSME #UdyamRegistration #MSMEDAct #SmallBusinessIndia #LatePayments #BusinessLoan #StartupIndia #Entrepreneur #MakeInIndia #ThinkLegalIndia"
+    },
+    {
+      "id": "llp-registration",
+      "topic": "LLP Registration",
+      "kicker": "LLP · Partnership without the trap",
+      "title_lines": [
+        {"runs": [{"t": "Going into business", "w": "s", "c": "ink"}], "size": 46},
+        {"runs": [{"t": "with a friend?", "w": "x", "c": "ink"}], "size": 64},
+        {"runs": [{"t": "Don’t skip the paper.", "w": "x", "c": "carrot"}], "size": 50}
+      ],
+      "subhook": "Unregistered partnerships make each partner personally liable for the others’ decisions. Yes, even bad ones.",
+      "bullets": [
+        "LLP shields each partner’s personal assets from the firm’s liabilities",
+        "Lighter compliance than a Pvt Ltd — no MAT, no DDT, no statutory audit under ₹40L",
+        "The LLP Agreement is where 90% of partner disputes are prevented (or made worse)"
+      ],
+      "cta": "DM “LLP” for a partnership audit",
+      "illustration_brief": "two stylised hands meeting in a handshake forming the top of a willow-green shield, while a single parchment scroll wraps around the base of the shield like a ribbon, with a small carrot-orange seal pressed onto it — symbolising the LLP Agreement protecting partners, flat vector, no text, soft long shadows",
+      "fb_caption": "A handshake partnership is a beautiful thing — right up until one partner takes a loan in the firm’s name. In an unregistered partnership, every partner is personally liable for the actions of every other partner. An LLP fixes that — each partner’s personal assets are ring-fenced from the firm’s debts. It also avoids the heavier compliance of a Pvt Ltd (no MAT, no statutory audit under ₹40L turnover). But here’s where most LLPs go wrong: the LLP Agreement. It’s the document that decides how profits split, what happens when a partner exits, and whether your business survives the first real disagreement. Templates from the internet don’t cover your specifics. We draft yours and file the FiLLiP. Visit thinklegalindia.co or DM “LLP”.",
+      "ig_caption": "Partnership ≠ protection. 🤝\n\nUnregistered partners are personally liable for each other’s decisions. An LLP fixes that, with lighter compliance than a Pvt Ltd — IF the LLP Agreement is written right.\n\nDM “LLP” for a partnership audit.\n\n#LLPRegistration #BusinessPartnership #LLPAgreement #StartupIndia #SmallBusinessIndia #Entrepreneur #FoundersOfIndia #BusinessSetup #LimitedLiability #ThinkLegalIndia"
+    },
+    {
+      "id": "gst-monthly-filing",
+      "topic": "GST Return Filing (service)",
+      "kicker": "GST Filing · You’re probably overpaying",
+      "title_lines": [
+        {"runs": [{"t": "Filing GST", "w": "s", "c": "ink"}], "size": 50},
+        {"runs": [{"t": "without reconciling?", "w": "x", "c": "ink"}], "size": 50},
+        {"runs": [{"t": "You’re overpaying.", "w": "x", "c": "carrot"}], "size": 58}
+      ],
+      "subhook": "GSTR-2B mismatches are the #1 reason small businesses leave input credit on the table.",
+      "bullets": [
+        "Most accounting software doesn’t auto-reconcile vendor GSTR-2B against your books",
+        "Unclaimed ITC = real cash leaking out — often ₹20k–₹2L/month for SMBs",
+        "Wrong HSN, wrong place-of-supply, B2B-as-B2C — silent errors notices catch later"
+      ],
+      "cta": "DM “FILING” for a 1-month free review",
+      "illustration_brief": "a tilted ledger book with willow-green checkmarks lining one page neatly, while small carrot-orange droplets leak from the edge of the book into a tiny gap below (representing leaked input credit), a magnifying glass hovering over the reconciliation column — flat vector, clean, paper background",
+      "fb_caption": "Here’s the GST filing secret most small businesses miss: filing on time is the easy half. The expensive half is reconciliation. Your vendors’ GSTR-1 entries become your GSTR-2B — and every mismatch (wrong invoice number, wrong tax rate, vendor uploaded late, vendor uploaded wrong GSTIN) is input credit you don’t get back. We see SMBs leaking ₹20k–₹2L every month, untouched, because nobody compares the two reports. We file your GSTR-1 and 3B, but more importantly we reconcile your books against 2B every month and chase your vendors when their filings break your credit. Visit thinklegalindia.co or DM “FILING”.",
+      "ig_caption": "GST filing on time is the easy part. The money is in reconciliation. 🔍\n\nGSTR-2B mismatches quietly steal ₹20k–₹2L/month from small businesses. We file AND reconcile so the credit actually comes back.\n\nDM “FILING” for a 1-month free review.\n\n#GSTFiling #GSTReturns #InputTaxCredit #GSTReconciliation #SmallBusinessIndia #Bookkeeping #TaxFiling #MSME #BusinessOwner #ThinkLegalIndia"
+    },
+    {
+      "id": "transparent-pricing",
+      "topic": "Brand — Transparent Pricing",
+      "kicker": "Why us · No quote calls",
+      "title_lines": [
+        {"runs": [{"t": "Tired of", "w": "s", "c": "ink"}], "size": 50},
+        {"runs": [{"t": "“request a quote”", "w": "x", "c": "carrot"}], "size": 70},
+        {"runs": [{"t": "before you see a price?", "w": "s", "c": "ink"}], "size": 38}
+      ],
+      "subhook": "Every price on our site is all-inclusive — govt fees + GST + professional fees. No back-and-forth.",
+      "bullets": [
+        "Real CAs, CSes & Advocates on record — not “just an app”",
+        "Track your filing status live, like a courier shipment",
+        "Refund if a deliverable doesn’t arrive in the published timeline"
+      ],
+      "cta": "See prices at thinklegalindia.co",
+      "illustration_brief": "a clean transparent glass price tag with the brand willow-green checkmark inside, hanging next to a closed grey box marked with a faded question mark (the competitor) — comparing transparent pricing vs hidden quote, flat vector, ample paper background, soft shadow under the glass tag",
+      "fb_caption": "The first thing most compliance-services websites do is hide their prices behind a “Get a Quote” form. By the time you’re on call number three, the price has somehow gone up. We took the opposite approach: every single service on thinklegalindia.co shows its all-inclusive price — government fees, 18% GST and our professional fees, together. The professionals on the back end are real partner CAs, Company Secretaries and Advocates, named and on record. You track your filing status live. If we miss the published timeline, you get a refund. That’s the whole pitch. Visit thinklegalindia.co.",
+      "ig_caption": "The price on our site is the price you pay. 👌\n\nGovt fees + 18% GST + our fees — all-inclusive. Real CAs & CSes signing off. Live status tracking. Timeline refund if we slip.\n\nLink in bio.\n\n#TransparentPricing #NoHiddenFees #StartupIndia #SmallBusinessIndia #CompanyRegistration #GSTIndia #BusinessSetup #Entrepreneur #MSME #ThinkLegalIndia",
+      "include_disclaimer": true
+    },
+    {
+      "id": "income-tax-filing",
+      "topic": "Income Tax / ITR Filing",
+      "kicker": "ITR · Where founders overpay",
+      "title_lines": [
+        {"runs": [{"t": "Filing ITR", "w": "s", "c": "ink"}], "size": 52},
+        {"runs": [{"t": "the same way", "w": "x", "c": "ink"}], "size": 64},
+        {"runs": [{"t": "as last year?", "w": "x", "c": "carrot"}], "size": 78}
+      ],
+      "subhook": "Section 44ADA, depreciation choices, the new vs old regime — the wrong default can cost lakhs.",
+      "bullets": [
+        "Presumptive taxation (44ADA/44AD) often beats books — if you qualify",
+        "Wrong regime choice locks you in for the year, sometimes forever",
+        "Section 80 deductions get missed every time founders self-file in a hurry"
+      ],
+      "cta": "DM “ITR” for a regime check",
+      "illustration_brief": "a Y-shaped road fork with two diverging arrows under a tax-document banner: one path bordered carrot-orange leading to a higher stack of coins (overpayment), the other willow-green leading to a smaller, neater stack and a willow checkmark — symbolising regime/section choice impact, flat vector, soft shadows",
+      "fb_caption": "Most founders we onboard have been quietly overpaying income tax for years — not because they’re doing it wrong, but because they’re doing it the same way every year. The new regime vs old regime trade-off changes when your section-80 investments change. Section 44ADA presumptive taxation can be cheaper than maintaining books for many professionals — but only inside certain turnover and profession bands. Depreciation method, advance tax instalments, capital-gain set-offs — each of these has a switch that wasn’t there three years ago. Our CAs review your specific situation, model both regimes, and file the one that actually saves you money. Visit thinklegalindia.co or DM “ITR”.",
+      "ig_caption": "Filing ITR the same way every year is how founders quietly overpay. 🧾\n\nNew vs old regime, 44ADA vs books, missed 80-deductions — each switch can save (or cost) lakhs. We model both and file the better one.\n\nDM “ITR” for a regime check.\n\n#IncomeTax #ITRFiling #TaxSavings #NewVsOldRegime #44ADA #StartupIndia #SmallBusinessIndia #BusinessTax #FoundersOfIndia #ThinkLegalIndia"
+    }
+  ]
+}
