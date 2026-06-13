@@ -63,6 +63,9 @@ jobs:
           } > .env
 
       - name: Run pipeline (live)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_REPOSITORY + GITHUB_RUN_ID are auto-set by Actions
         run: python3 pipeline.py --live
 
       - name: Persist rotation state + commit log
