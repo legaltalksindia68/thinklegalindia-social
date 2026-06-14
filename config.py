@@ -9,6 +9,7 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(HERE, "outputs")
 POSTS_FILE = os.path.join(HERE, "posts.json")
+THEMES_FILE = os.path.join(HERE, "themes.json")
 STATE_FILE = os.path.join(HERE, "state.json")   # rotation cursor + post history
 PAUSE_FILE = os.path.join(HERE, "PAUSED")        # create this file to pause posting
 LOG_FILE = os.path.join(OUT_DIR, "pipeline.log")
@@ -62,10 +63,16 @@ CARROT = [234, 144, 16]   # #EA9010  primary accent / badges
 SOCIAL_RGB_COLORS = [INK, CARROT, WILLOW, TEA, PAPER]
 SOCIAL_BACKGROUND_RGB = CREAM
 
-# Raster model — renders crisp marketing text + illustration (validated 13 Jun 2026).
+# --- models (all via OpenRouter, one key) ---
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+# Copywriter + art-director (writes unique copy each run). Balanced tier.
+TEXT_MODEL = "anthropic/claude-sonnet-4.6"
+# Illustration model — cheap flat vector; the premium look comes from design.py.
 IMAGE_MODEL = "recraft/recraft-v4.1-utility"
 IMAGE_MODEL_FALLBACK = "recraft/recraft-v4.1-vector"  # vector (SVG); used only if utility fails
 ASPECT_RATIO = "4:5"  # portrait, Instagram-feed friendly; used for both platforms
+HISTORY_AVOID = 25    # how many recent posts to feed the LLM so it never repeats
+RENDER_MODE = "ai_copy"  # "ai_copy" = live LLM copy; "fallback_pool" = use posts.json
 
 DISCLAIMER = (
     "Think Legal India is a private facilitation platform and is not a government body "
@@ -75,3 +82,4 @@ DISCLAIMER = (
 )
 
 WEBSITE = "thinklegalindia.co"
+TAGLINE = "Start Right. Stay Compliant."

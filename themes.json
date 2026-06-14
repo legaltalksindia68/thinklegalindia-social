@@ -1,0 +1,53 @@
+{
+  "_README": "Raw material the creative LLM remixes into unique posts — NOT literal posts. Add anything here; the copywriter will reach it. Compliance deadlines let it post timely reminders near the relevant date.",
+  "services": [
+    "Private Limited Company registration", "One Person Company (OPC) registration",
+    "LLP registration", "Partnership firm registration", "Sole proprietorship setup",
+    "Section 8 (NGO) company registration", "Producer company registration",
+    "GST registration", "GST return filing (GSTR-1, GSTR-3B)", "GST annual return (GSTR-9)",
+    "GST cancellation / revocation", "GST LUT for exporters", "Input tax credit reconciliation",
+    "Trademark registration", "Trademark objection / opposition reply", "Trademark renewal",
+    "Copyright registration", "Design registration", "Logo / brand protection",
+    "ROC annual compliance (AOC-4, MGT-7)", "Director KYC (DIR-3 KYC)", "DPT-3 filing",
+    "Company name change", "Registered office change", "Add / remove director",
+    "Increase authorised capital", "Share transfer", "Company strike-off / closure",
+    "Income tax return (ITR) filing", "TDS return filing", "Advance tax planning",
+    "Business tax planning (old vs new regime)", "Presumptive taxation 44ADA / 44AD",
+    "MSME / Udyam registration", "Startup India / DPIIT recognition", "Import Export Code (IEC)",
+    "FSSAI food license", "Professional tax registration", "Shops & Establishment license",
+    "PF & ESI registration", "Digital Signature Certificate (DSC)",
+    "Accounting & bookkeeping", "Payroll compliance", "Virtual CFO",
+    "Legal agreements (founders, NDA, employment, vendor)", "Term sheet / SHA review",
+    "Annual compliance packages for startups", "12A & 80G registration for NGOs",
+    "Section 8 compliance", "FDI / FEMA compliance"
+  ],
+  "compliance_calendar": [
+    "GSTR-1: 11th of the next month (monthly filers)",
+    "GSTR-3B: 20th of the next month (monthly filers)",
+    "GSTR-9 annual return: 31 December",
+    "TDS return: 31 Jul / 31 Oct / 31 Jan / 31 May (quarterly)",
+    "Advance tax: 15 Jun (15%), 15 Sep (45%), 15 Dec (75%), 15 Mar (100%)",
+    "ITR filing (non-audit): 31 July",
+    "ITR filing (audit cases): 31 October",
+    "Tax audit report: 30 September",
+    "ROC AOC-4: within 30 days of AGM (~29 Oct)",
+    "ROC MGT-7: within 60 days of AGM (~28 Nov)",
+    "DIR-3 KYC: 30 September",
+    "DPT-3: 30 June",
+    "Form 11 (LLP annual return): 30 May",
+    "Form 8 (LLP statement of accounts): 30 October"
+  ],
+  "audiences": [
+    "first-time founder still freelancing", "D2C / e-commerce seller", "SaaS startup",
+    "restaurant / cloud kitchen owner", "freelancer / consultant", "family business",
+    "exporter", "content creator turning into a business", "small manufacturer",
+    "agency owner", "two co-founders starting up", "NGO / trust founder"
+  ],
+  "angle_seeds": [
+    "the danger of operating unregistered", "money quietly leaking (unclaimed credits/deductions)",
+    "a deadline that compounds penalties", "protection people don't know they're entitled to",
+    "a myth founders believe that is costly", "what investors/banks/marketplaces require",
+    "why DIY filings get rejected or cause notices", "the real cost of waiting one more quarter",
+    "a benefit gated behind a registration", "a 'small' mistake that becomes expensive later"
+  ]
+}
