@@ -7,8 +7,19 @@ name: post-social
 
 on:
   schedule:
-    - cron: "0 4 * * *"   # 09:30 IST
-    - cron: "0 16 * * *"  # 21:30 IST
+    # GitHub's scheduled runs are BEST-EFFORT — under load they get delayed by hours
+    # or dropped entirely (this bit us: a whole day's slots vanished). So we don't rely
+    # on a single fire. Each slot has a primary attempt PLUS hourly catch-ups, all off
+    # the congested top-of-hour. The pipeline's slot-aware dedup guarantees only the
+    # FIRST successful attempt of a slot actually posts — the rest are instant no-ops.
+    # Morning slot (target 09:30 IST = 04:00 UTC):
+    - cron: "7 4 * * *"    # 09:37 IST  (primary)
+    - cron: "7 5 * * *"    # 10:37 IST  (catch-up 1)
+    - cron: "7 6 * * *"    # 11:37 IST  (catch-up 2)
+    # Evening slot (target 21:30 IST = 16:00 UTC):
+    - cron: "7 16 * * *"   # 21:37 IST  (primary)
+    - cron: "7 17 * * *"   # 22:37 IST  (catch-up 1)
+    - cron: "7 18 * * *"   # 23:37 IST  (catch-up 2)
   workflow_dispatch: {}    # manual "Run workflow" button
 
 # GITHUB_TOKEN needs to commit state.json back so the rotation cursor advances.

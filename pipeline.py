@@ -55,6 +55,23 @@ EMERGENCY_SPEC = {
 }
 
 
+def current_slot(now_utc=None):
+    """Which daily slot are we in, in IST? Returns (ist_date_str, 'morning'|'evening').
+
+    Targets: 09:30 IST (morning) and 21:30 IST (evening). We classify by IST hour so
+    that a *catch-up* run firing late still counts toward the slot it belongs to:
+    06:00–16:00 IST → morning, otherwise → evening.
+    """
+    now_utc = now_utc or datetime.datetime.utcnow()
+    ist = now_utc + datetime.timedelta(hours=5, minutes=30)
+    slot = "morning" if 6 <= ist.hour < 16 else "evening"
+    return ist.date().isoformat(), slot
+
+
+def already_posted_this_slot(history, day, slot):
+    return any(e.get("ist_date") == day and e.get("slot") == slot for e in history)
+
+
 def log(msg):
     os.makedirs(C.OUT_DIR, exist_ok=True)
     line = f"[{datetime.datetime.now().isoformat(timespec='seconds')}] {msg}"
@@ -112,6 +129,16 @@ def run(args):
 
     state = load_json(C.STATE_FILE, {"history": []})
     history = state.get("history", [])
+
+    # Self-heal dedup: GitHub cron is best-effort and often drops/delays slots, so the
+    # workflow fires several catch-up attempts per slot. This guard makes the EXTRA
+    # attempts no-ops once that slot has already posted, so we recover dropped runs
+    # WITHOUT ever double-posting. Override with --force-slot.
+    day, slot = current_slot()
+    if args.live and not args.force_slot and already_posted_this_slot(history, day, slot):
+        log(f"Already posted in the {day} {slot} slot — skipping (self-heal dedup, no double-post).")
+        return 0
+
     force_disc = (len(history) + 1) % DISCLAIMER_EVERY == 0
 
     log(f"Generating unique post (mode={'LIVE' if args.live else 'dry-run'}, "
@@ -163,6 +190,7 @@ def run(args):
 
     history.append({
         "posted_at": datetime.datetime.now().isoformat(timespec="seconds"),
+        "ist_date": day, "slot": slot,
         "topic": spec["topic"], "angle": spec["angle"], "layout": spec["layout"],
         "accent": spec["accent"], "headline": headline_txt, "image_url": image_url,
         "disclaimer": force_disc,
@@ -179,6 +207,7 @@ def main():
     ap.add_argument("--peek", action="store_true", help="print freshly-written copy, no image")
     ap.add_argument("--no-image", action="store_true", help="reuse existing illustration")
     ap.add_argument("--force-queued", action="store_true", help="post even if a bundle is queued")
+    ap.add_argument("--force-slot", action="store_true", help="post even if this slot already posted")
     sys.exit(run(ap.parse_args()))
 
 
