@@ -130,11 +130,14 @@ def run(args):
     state = load_json(C.STATE_FILE, {"history": []})
     history = state.get("history", [])
 
-    # Self-heal dedup: GitHub cron is best-effort and often drops/delays slots, so the
-    # workflow fires several catch-up attempts per slot. This guard makes the EXTRA
-    # attempts no-ops once that slot has already posted, so we recover dropped runs
-    # WITHOUT ever double-posting. Override with --force-slot.
-    day, slot = current_slot()
+    # Timing is driven by Make.com, which triggers GitHub twice a day and passes the
+    # slot explicitly via the SLOT env (morning/evening). We trust that over the wall
+    # clock, so a run still records the correct slot even if GitHub starts it a little
+    # late. ('manual'/unset → fall back to clock-derived slot.) The dedup then makes a
+    # same-slot retry a no-op so we never double-post.
+    day, clock_slot = current_slot()
+    env_slot = os.environ.get("SLOT", "").strip().lower()
+    slot = env_slot if env_slot in ("morning", "evening") else clock_slot
     if args.live and not args.force_slot and already_posted_this_slot(history, day, slot):
         log(f"Already posted in the {day} {slot} slot — skipping (self-heal dedup, no double-post).")
         return 0

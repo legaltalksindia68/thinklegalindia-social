@@ -1,26 +1,22 @@
-# Think Legal India — twice-daily social post (cloud cron).
-# Runs on GitHub's servers, independent of any laptop. Fires at:
-#   04:00 UTC  =  09:30 IST  (morning)
-#   16:00 UTC  =  21:30 IST  (evening)
-# Manual trigger also available via the Actions tab.
+# Think Legal India — twice-daily social post.
+#
+# TIMING IS DRIVEN BY MAKE.COM, NOT GitHub. GitHub's `schedule` trigger is best-effort
+# and was firing runs 40 min to 10+ HOURS late, dumping every post into the IST night
+# and (via slot misclassification) collapsing us to one post/day. So we removed the cron
+# entirely. Make's reliable scheduler now fires two HTTP `workflow_dispatch` calls per
+# day — 09:30 IST (slot=morning) and 21:30 IST (slot=evening) — each passing the slot
+# explicitly so the run records the right slot even if GitHub starts it a little late.
 name: post-social
 
 on:
-  schedule:
-    # GitHub's scheduled runs are BEST-EFFORT — under load they get delayed by hours
-    # or dropped entirely (this bit us: a whole day's slots vanished). So we don't rely
-    # on a single fire. Each slot has a primary attempt PLUS hourly catch-ups, all off
-    # the congested top-of-hour. The pipeline's slot-aware dedup guarantees only the
-    # FIRST successful attempt of a slot actually posts — the rest are instant no-ops.
-    # Morning slot (target 09:30 IST = 04:00 UTC):
-    - cron: "7 4 * * *"    # 09:37 IST  (primary)
-    - cron: "7 5 * * *"    # 10:37 IST  (catch-up 1)
-    - cron: "7 6 * * *"    # 11:37 IST  (catch-up 2)
-    # Evening slot (target 21:30 IST = 16:00 UTC):
-    - cron: "7 16 * * *"   # 21:37 IST  (primary)
-    - cron: "7 17 * * *"   # 22:37 IST  (catch-up 1)
-    - cron: "7 18 * * *"   # 23:37 IST  (catch-up 2)
-  workflow_dispatch: {}    # manual "Run workflow" button
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Which daily slot this run is for"
+        required: false
+        default: "manual"
+        type: choice
+        options: [morning, evening, manual]
 
 # GITHUB_TOKEN needs to commit state.json back so the rotation cursor advances.
 permissions:
@@ -76,6 +72,8 @@ jobs:
       - name: Run pipeline (live)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Slot passed by Make (morning/evening); 'manual' for hand-triggered runs.
+          SLOT: ${{ inputs.slot }}
           # GITHUB_REPOSITORY + GITHUB_RUN_ID are auto-set by Actions
         run: python3 pipeline.py --live
 
